@@ -43,8 +43,13 @@ public class Main {
 			} else if (cmd.equals("article list")) {
 				if (articles.size() == 0) {
 					System.out.println("게시글이 없습니다");
-				} else {
-					System.out.println("게시글 존재");
+					continue;
+				}
+				
+				System.out.println("번호		|		제목");
+				for (int i = articles.size() - 1; i >= 0; i--) {
+					Article article = articles.get(i);
+					System.out.printf("%d		|		%s\n", article.id, article.title);
 				}
 
 			} else {
