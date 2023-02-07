@@ -1,5 +1,6 @@
 package com.KoreaIT.java.AM.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,20 +13,20 @@ public class MemberController extends Controller {
 	private Scanner sc;
 	private String actionMethodName;
 
-	public void doAction(String cmd,String actionMethodName) {
+	public MemberController(Scanner sc) {
+		this.sc = sc;
+		members = new ArrayList<Member>();
+	}
+
+	public void doAction(String cmd, String actionMethodName) {
 		this.cmd = cmd;
 		this.actionMethodName = actionMethodName;
-		
-		switch(actionMethodName) {
-		case "join" :
+
+		switch (actionMethodName) {
+		case "join":
 			doJoin();
 			break;
 		}
-	}
-
-	public MemberController(List<Member> members, Scanner sc) {
-		this.members = members;
-		this.sc = sc;
 	}
 
 	public void doJoin() {
